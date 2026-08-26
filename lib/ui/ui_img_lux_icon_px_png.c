@@ -193,3 +193,4 @@ const lv_img_dsc_t ui_img_lux_icon_px_png = {
   .data_size = 6400 * 3,
   .data = ui_img_lux_icon_px_png_map,
 };
+ 

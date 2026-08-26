@@ -30,7 +30,7 @@ extern lv_obj_t * ui____initial_actions0;
 // IMAGES AND IMAGE SETS
 LV_IMG_DECLARE(ui__temporary_image);
 LV_IMG_DECLARE(ui_img_background_px_png);    // assets/background_px.png
-LV_IMG_DECLARE(ui_img_images_px_no_bg_png);    // assets/images_px_no_bg.png
+LV_IMG_DECLARE(ui_img_solgan_px_png);    // assets/solgan_px.png
 LV_IMG_DECLARE(ui_img_terminal_icon_px_png);    // assets/terminal_icon_px.png
 LV_IMG_DECLARE(ui_img_lightbulb_px_png);    // assets/lightbulb_px.png
 LV_IMG_DECLARE(ui_img_button_icon_px_png);    // assets/button_icon_px.png
