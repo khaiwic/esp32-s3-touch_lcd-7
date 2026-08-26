@@ -138,7 +138,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_text_color(ui_uiIlovePtit, lv_color_hex(0xF30707), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_uiIlovePtit, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_uiIlovePtit, &ui_font_arialbold24, LV_PART_MAIN | LV_STATE_DEFAULT);  //  &ui_font_arialbold24
-
+//hui
     ui_uiIhatePtit = lv_label_create(ui_uiPannelSolgan);
     lv_obj_set_width(ui_uiIhatePtit, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_uiIhatePtit, LV_SIZE_CONTENT);    /// 1
