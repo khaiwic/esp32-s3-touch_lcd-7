@@ -30,17 +30,17 @@ extern lv_obj_t * ui____initial_actions0;
 // IMAGES AND IMAGE SETS
 LV_IMG_DECLARE(ui__temporary_image);
 LV_IMG_DECLARE(ui_img_background_px_png);    // assets/background_px.png
-LV_IMG_DECLARE(ui_img_solgan_px_png);    // assets/solgan_px.png
-LV_IMG_DECLARE(ui_img_terminal_icon_px_png);    // assets/terminal_icon_px.png
-LV_IMG_DECLARE(ui_img_lightbulb_px_png);    // assets/lightbulb_px.png
-LV_IMG_DECLARE(ui_img_button_icon_px_png);    // assets/button_icon_px.png
-LV_IMG_DECLARE(ui_img_lux_icon_px_png);    // assets/lux_icon_px.png
-LV_IMG_DECLARE(ui_img_co2_icon_px_png);    // assets/co2_icon_px.png
-LV_IMG_DECLARE(ui_img_fan_icon_2_px_png);    // assets/fan_icon_2_px.png
-LV_IMG_DECLARE(ui_img_humidity_icon_px_png);    // assets/humidity_icon_px.png
-LV_IMG_DECLARE(ui_img_tempurate_2_px_png);    // assets/tempurate_2_px.png
-LV_IMG_DECLARE(ui_img_water_management_symbol_px_png);    // assets/water management symbol_px.png
-LV_IMG_DECLARE(ui_img_hummid_soild_icon_px_png);    // assets/hummid_soild_icon_px.png
+LV_IMG_DECLARE(ui_img_figma_logo_px_png);    // assets/Figma_logo_px.png
+LV_IMG_DECLARE(ui_img_figma_terminal_px_png);    // assets/Figma_terminal_px.png
+LV_IMG_DECLARE(ui_img_figma_button_px_png);    // assets/Figma_button_px.png
+LV_IMG_DECLARE(ui_img_figma_lightbulbs_px_png);    // assets/Figma_lightbulbs_px.png
+LV_IMG_DECLARE(ui_img_figma_lux_px_png);    // assets/Figma_lux_px.png
+LV_IMG_DECLARE(ui_img_figma_co2_px_png);    // assets/Figma_co2_px.png
+LV_IMG_DECLARE(ui_img_figma_fans_px_png);    // assets/Figma_fans_px.png
+LV_IMG_DECLARE(ui_img_figma_humidity_px_png);    // assets/Figma_humidity_px.png
+LV_IMG_DECLARE(ui_img_figma_tempt_px_png);    // assets/Figma_tempt_px.png
+LV_IMG_DECLARE(ui_img_figma_water_px_png);    // assets/Figma_water_px.png
+LV_IMG_DECLARE(ui_img_figma_soild_humid_px_png);    // assets/Figma_soild_humid_px.png
 
 // FONTS
 LV_FONT_DECLARE(ui_font_arialbold16);

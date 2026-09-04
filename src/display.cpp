@@ -20,7 +20,7 @@ void display_init(){
      * This feature will consume `bounce_buffer_size * bytes_per_pixel * 2` of SRAM memory.
      */
     if (lcd_bus->getBasicAttributes().type == ESP_PANEL_BUS_TYPE_RGB) {
-        static_cast<BusRGB *>(lcd_bus)->configRGB_BounceBufferSize(lcd->getFrameWidth() * 10);
+        static_cast<BusRGB *>(lcd_bus)->configRGB_BounceBufferSize(lcd->getFrameWidth() * 30);
     }
 #endif
 #endif

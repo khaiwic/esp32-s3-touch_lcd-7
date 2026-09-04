@@ -9,7 +9,7 @@
 #if defined(LV_LVGL_H_INCLUDE_SIMPLE)
     #include "lvgl.h"
 #else
-    #include "lvgl/lvgl.h"
+    #include "lvgl.h"
 #endif
 
 
@@ -506,9 +506,9 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMAGE_UI_IMG_
 
 const lv_img_dsc_t ui_img_background_px_png = {
   .header.always_zero = 0,
-  .header.cf = LV_IMG_CF_TRUE_COLOR,
   .header.w = 800,
   .header.h = 480,
   .data_size = 384000 * 2,
+  .header.cf = LV_IMG_CF_TRUE_COLOR,
   .data = ui_img_background_px_png_map,
 };
