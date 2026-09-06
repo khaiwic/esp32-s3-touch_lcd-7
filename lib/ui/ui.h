@@ -28,11 +28,8 @@ extern "C" {
 extern lv_obj_t * ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
-LV_IMG_DECLARE(ui__temporary_image);
 LV_IMG_DECLARE(ui_img_background_px_png);    // assets/background_px.png
 LV_IMG_DECLARE(ui_img_figma_logo_px_png);    // assets/Figma_logo_px.png
-LV_IMG_DECLARE(ui_img_figma_terminal_px_png);    // assets/Figma_terminal_px.png
-LV_IMG_DECLARE(ui_img_figma_button_px_png);    // assets/Figma_button_px.png
 LV_IMG_DECLARE(ui_img_figma_lightbulbs_px_png);    // assets/Figma_lightbulbs_px.png
 LV_IMG_DECLARE(ui_img_figma_lux_px_png);    // assets/Figma_lux_px.png
 LV_IMG_DECLARE(ui_img_figma_co2_px_png);    // assets/Figma_co2_px.png

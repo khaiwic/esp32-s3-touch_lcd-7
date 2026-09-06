@@ -10,7 +10,6 @@ lv_obj_t * uic_uiImageSoild;
 lv_obj_t * uic_uiLabelSoild;
 lv_obj_t * uic_uiValueSoild;
 lv_obj_t * uic_uiPannelSoild;
-lv_obj_t * uic_uiButtonWater;
 lv_obj_t * uic_uiPannelWater;
 lv_obj_t * uic_uiImageTemp;
 lv_obj_t * uic_uiImageHumid;
@@ -19,7 +18,10 @@ lv_obj_t * uic_uiLabelHumid;
 lv_obj_t * uic_uiValueHumid;
 lv_obj_t * uic_uiValueTemp;
 lv_obj_t * uic_uiPannelHumidandTemp;
+lv_obj_t * uic_uiboxFan;
 lv_obj_t * uic_uiFan;
+lv_obj_t * uic_uiLabelFan;
+lv_obj_t * uic_uiPannelFan;
 lv_obj_t * uic_uiImageCO2;
 lv_obj_t * uic_uiImageLux;
 lv_obj_t * uic_uiLabelLux;
@@ -27,21 +29,19 @@ lv_obj_t * uic_uiLabelPPM;
 lv_obj_t * uic_uiValueCO2;
 lv_obj_t * uic_uiValueLux;
 lv_obj_t * uic_uiPannelLuxandCO2;
+lv_obj_t * uic_BoxLight;
 lv_obj_t * uic_uiLightbulb;
-lv_obj_t * uic_uiButtonLight;
 lv_obj_t * uic_uiLabelLight;
 lv_obj_t * uic_uiPannelLight;
-lv_obj_t * uic_uiTerminal;
 lv_obj_t * uic_Iloveptit;
 lv_obj_t * uic_uiPannelBackgound;
 lv_obj_t * ui_Screen1 = NULL;
 lv_obj_t * ui_uiPannelBackgound = NULL;
 lv_obj_t * ui_Iloveptit = NULL;
-lv_obj_t * ui_uiTerminal = NULL;
 lv_obj_t * ui_uiPannelLight = NULL;
 lv_obj_t * ui_uiLabelLight = NULL;
-lv_obj_t * ui_uiButtonLight = NULL;
 lv_obj_t * ui_uiLightbulb = NULL;
+lv_obj_t * ui_BoxLight = NULL;
 lv_obj_t * ui_uiPannelLuxandCO2 = NULL;
 lv_obj_t * ui_uiValueLux = NULL;
 lv_obj_t * ui_uiValueCO2 = NULL;
@@ -49,10 +49,10 @@ lv_obj_t * ui_uiLabelPPM = NULL;
 lv_obj_t * ui_uiLabelLux = NULL;
 lv_obj_t * ui_uiImageLux = NULL;
 lv_obj_t * ui_uiImageCO2 = NULL;
-lv_obj_t * ui_Panel5 = NULL;
-lv_obj_t * ui_Label5 = NULL;
+lv_obj_t * ui_uiPannelFan = NULL;
+lv_obj_t * ui_uiLabelFan = NULL;
 lv_obj_t * ui_uiFan = NULL;
-lv_obj_t * ui_ImgButton3 = NULL;
+lv_obj_t * ui_uiboxFan = NULL;
 lv_obj_t * ui_uiPannelHumidandTemp = NULL;
 lv_obj_t * ui_uiValueTemp = NULL;
 lv_obj_t * ui_uiValueHumid = NULL;
@@ -63,7 +63,7 @@ lv_obj_t * ui_uiImageTemp = NULL;
 lv_obj_t * ui_uiPannelWater = NULL;
 lv_obj_t * ui_uiLabelWater = NULL;
 lv_obj_t * ui_uiImageWater = NULL;
-lv_obj_t * ui_uiButtonWater = NULL;
+lv_obj_t * ui_Checkbox1 = NULL;
 lv_obj_t * ui_uiPannelSoild = NULL;
 lv_obj_t * ui_uiValueSoild = NULL;
 lv_obj_t * ui_uiLabelSoild = NULL;
@@ -71,14 +71,6 @@ lv_obj_t * ui_uiImageSoild = NULL;
 lv_obj_t * ui_uiPannelTerminal = NULL;
 lv_obj_t * ui_uiTextTerminal = NULL;
 // event funtions
-void ui_event_uiTerminal(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_flag_modify(ui_uiPannelTerminal, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_TOGGLE);
-    }
-}
 
 // build funtions
 
@@ -113,21 +105,6 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_flag(ui_Iloveptit, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_Iloveptit, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_uiTerminal = lv_imgbtn_create(ui_Screen1);
-    lv_imgbtn_set_src(ui_uiTerminal, LV_IMGBTN_STATE_RELEASED, NULL, &ui_img_figma_terminal_px_png, NULL);
-    lv_imgbtn_set_src(ui_uiTerminal, LV_IMGBTN_STATE_PRESSED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiTerminal, LV_IMGBTN_STATE_DISABLED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiTerminal, LV_IMGBTN_STATE_CHECKED_PRESSED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiTerminal, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiTerminal, LV_IMGBTN_STATE_CHECKED_DISABLED, NULL, &ui__temporary_image, NULL);
-    lv_obj_set_width(ui_uiTerminal, 65);
-    lv_obj_set_height(ui_uiTerminal, 65);
-    lv_obj_set_x(ui_uiTerminal, 356);
-    lv_obj_set_y(ui_uiTerminal, -199);
-    lv_obj_set_align(ui_uiTerminal, LV_ALIGN_CENTER);
-    lv_obj_clear_flag(ui_uiTerminal, LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
-                      LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
-
     ui_uiPannelLight = lv_obj_create(ui_Screen1);
     lv_obj_set_width(ui_uiPannelLight, 200);
     lv_obj_set_height(ui_uiPannelLight, 185);
@@ -150,21 +127,6 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_text_opa(ui_uiLabelLight, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_uiLabelLight, &lv_font_montserrat_30, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_uiButtonLight = lv_imgbtn_create(ui_uiPannelLight);
-    lv_imgbtn_set_src(ui_uiButtonLight, LV_IMGBTN_STATE_RELEASED, NULL, &ui_img_figma_button_px_png, NULL);
-    lv_imgbtn_set_src(ui_uiButtonLight, LV_IMGBTN_STATE_PRESSED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiButtonLight, LV_IMGBTN_STATE_DISABLED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiButtonLight, LV_IMGBTN_STATE_CHECKED_PRESSED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiButtonLight, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiButtonLight, LV_IMGBTN_STATE_CHECKED_DISABLED, NULL, &ui__temporary_image, NULL);
-    lv_obj_set_width(ui_uiButtonLight, 35);
-    lv_obj_set_height(ui_uiButtonLight, 35);
-    lv_obj_set_x(ui_uiButtonLight, 77);
-    lv_obj_set_y(ui_uiButtonLight, -68);
-    lv_obj_set_align(ui_uiButtonLight, LV_ALIGN_CENTER);
-    lv_obj_clear_flag(ui_uiButtonLight, LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
-                      LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
-
     ui_uiLightbulb = lv_img_create(ui_uiPannelLight);
     lv_img_set_src(ui_uiLightbulb, &ui_img_figma_lightbulbs_px_png);
     lv_obj_set_width(ui_uiLightbulb, 110);
@@ -174,6 +136,15 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_align(ui_uiLightbulb, LV_ALIGN_CENTER);
     lv_obj_add_flag(ui_uiLightbulb, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_uiLightbulb, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+
+    ui_BoxLight = lv_checkbox_create(ui_uiPannelLight);
+    lv_checkbox_set_text(ui_BoxLight, "");
+    lv_obj_set_width(ui_BoxLight, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_BoxLight, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_BoxLight, 89);
+    lv_obj_set_y(ui_BoxLight, -77);
+    lv_obj_set_align(ui_BoxLight, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_BoxLight, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
     ui_uiPannelLuxandCO2 = lv_obj_create(ui_Screen1);
     lv_obj_set_width(ui_uiPannelLuxandCO2, 200);
@@ -250,29 +221,29 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_flag(ui_uiImageCO2, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_uiImageCO2, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_Panel5 = lv_obj_create(ui_Screen1);
-    lv_obj_set_width(ui_Panel5, 200);
-    lv_obj_set_height(ui_Panel5, 185);
-    lv_obj_set_x(ui_Panel5, -87);
-    lv_obj_set_y(ui_Panel5, -59);
-    lv_obj_set_align(ui_Panel5, LV_ALIGN_CENTER);
-    lv_obj_clear_flag(ui_Panel5, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
-    lv_obj_set_style_bg_color(ui_Panel5, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui_Panel5, 100, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_border_width(ui_Panel5, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_uiPannelFan = lv_obj_create(ui_Screen1);
+    lv_obj_set_width(ui_uiPannelFan, 200);
+    lv_obj_set_height(ui_uiPannelFan, 185);
+    lv_obj_set_x(ui_uiPannelFan, -87);
+    lv_obj_set_y(ui_uiPannelFan, -59);
+    lv_obj_set_align(ui_uiPannelFan, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_uiPannelFan, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_color(ui_uiPannelFan, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_uiPannelFan, 100, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui_uiPannelFan, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_Label5 = lv_label_create(ui_Panel5);
-    lv_obj_set_width(ui_Label5, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_Label5, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_Label5, -1);
-    lv_obj_set_y(ui_Label5, 76);
-    lv_obj_set_align(ui_Label5, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label5, "Fan");
-    lv_obj_set_style_text_color(ui_Label5, lv_color_hex(0x17DD19), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_Label5, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui_Label5, &lv_font_montserrat_30, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_uiLabelFan = lv_label_create(ui_uiPannelFan);
+    lv_obj_set_width(ui_uiLabelFan, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_uiLabelFan, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_uiLabelFan, -1);
+    lv_obj_set_y(ui_uiLabelFan, 76);
+    lv_obj_set_align(ui_uiLabelFan, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_uiLabelFan, "Fan");
+    lv_obj_set_style_text_color(ui_uiLabelFan, lv_color_hex(0x17DD19), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_uiLabelFan, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_uiLabelFan, &lv_font_montserrat_30, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_uiFan = lv_img_create(ui_Panel5);
+    ui_uiFan = lv_img_create(ui_uiPannelFan);
     lv_img_set_src(ui_uiFan, &ui_img_figma_fans_px_png);
     lv_obj_set_width(ui_uiFan, 110);
     lv_obj_set_height(ui_uiFan, 110);
@@ -282,20 +253,14 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_flag(ui_uiFan, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_uiFan, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_ImgButton3 = lv_imgbtn_create(ui_Panel5);
-    lv_imgbtn_set_src(ui_ImgButton3, LV_IMGBTN_STATE_RELEASED, NULL, &ui_img_figma_button_px_png, NULL);
-    lv_imgbtn_set_src(ui_ImgButton3, LV_IMGBTN_STATE_PRESSED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_ImgButton3, LV_IMGBTN_STATE_DISABLED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_ImgButton3, LV_IMGBTN_STATE_CHECKED_PRESSED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_ImgButton3, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_ImgButton3, LV_IMGBTN_STATE_CHECKED_DISABLED, NULL, &ui__temporary_image, NULL);
-    lv_obj_set_width(ui_ImgButton3, 35);
-    lv_obj_set_height(ui_ImgButton3, 35);
-    lv_obj_set_x(ui_ImgButton3, 77);
-    lv_obj_set_y(ui_ImgButton3, -66);
-    lv_obj_set_align(ui_ImgButton3, LV_ALIGN_CENTER);
-    lv_obj_clear_flag(ui_ImgButton3, LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
-                      LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
+    ui_uiboxFan = lv_checkbox_create(ui_uiPannelFan);
+    lv_checkbox_set_text(ui_uiboxFan, "");
+    lv_obj_set_width(ui_uiboxFan, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_uiboxFan, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_uiboxFan, 90);
+    lv_obj_set_y(ui_uiboxFan, -76);
+    lv_obj_set_align(ui_uiboxFan, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_uiboxFan, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
     ui_uiPannelHumidandTemp = lv_obj_create(ui_Screen1);
     lv_obj_set_width(ui_uiPannelHumidandTemp, 200);
@@ -407,20 +372,14 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_flag(ui_uiImageWater, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_uiImageWater, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
-    ui_uiButtonWater = lv_imgbtn_create(ui_uiPannelWater);
-    lv_imgbtn_set_src(ui_uiButtonWater, LV_IMGBTN_STATE_RELEASED, NULL, &ui_img_figma_button_px_png, NULL);
-    lv_imgbtn_set_src(ui_uiButtonWater, LV_IMGBTN_STATE_PRESSED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiButtonWater, LV_IMGBTN_STATE_DISABLED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiButtonWater, LV_IMGBTN_STATE_CHECKED_PRESSED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiButtonWater, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, &ui__temporary_image, NULL);
-    lv_imgbtn_set_src(ui_uiButtonWater, LV_IMGBTN_STATE_CHECKED_DISABLED, NULL, &ui__temporary_image, NULL);
-    lv_obj_set_width(ui_uiButtonWater, 35);
-    lv_obj_set_height(ui_uiButtonWater, 35);
-    lv_obj_set_x(ui_uiButtonWater, 78);
-    lv_obj_set_y(ui_uiButtonWater, -65);
-    lv_obj_set_align(ui_uiButtonWater, LV_ALIGN_CENTER);
-    lv_obj_clear_flag(ui_uiButtonWater, LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
-                      LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
+    ui_Checkbox1 = lv_checkbox_create(ui_uiPannelWater);
+    lv_checkbox_set_text(ui_Checkbox1, "");
+    lv_obj_set_width(ui_Checkbox1, 50);
+    lv_obj_set_height(ui_Checkbox1, 50);
+    lv_obj_set_x(ui_Checkbox1, 99);
+    lv_obj_set_y(ui_Checkbox1, -60);
+    lv_obj_set_align(ui_Checkbox1, LV_ALIGN_CENTER);
+    lv_obj_add_flag(ui_Checkbox1, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
 
     ui_uiPannelSoild = lv_obj_create(ui_Screen1);
     lv_obj_set_width(ui_uiPannelSoild, 200);
@@ -491,14 +450,12 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_border_opa(ui_uiTextTerminal, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(ui_uiTextTerminal, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_add_event_cb(ui_uiTerminal, ui_event_uiTerminal, LV_EVENT_ALL, NULL);
     uic_uiPannelBackgound = ui_uiPannelBackgound;
     uic_Iloveptit = ui_Iloveptit;
-    uic_uiTerminal = ui_uiTerminal;
     uic_uiPannelLight = ui_uiPannelLight;
     uic_uiLabelLight = ui_uiLabelLight;
-    uic_uiButtonLight = ui_uiButtonLight;
     uic_uiLightbulb = ui_uiLightbulb;
+    uic_BoxLight = ui_BoxLight;
     uic_uiPannelLuxandCO2 = ui_uiPannelLuxandCO2;
     uic_uiValueLux = ui_uiValueLux;
     uic_uiValueCO2 = ui_uiValueCO2;
@@ -506,7 +463,10 @@ void ui_Screen1_screen_init(void)
     uic_uiLabelLux = ui_uiLabelLux;
     uic_uiImageLux = ui_uiImageLux;
     uic_uiImageCO2 = ui_uiImageCO2;
+    uic_uiPannelFan = ui_uiPannelFan;
+    uic_uiLabelFan = ui_uiLabelFan;
     uic_uiFan = ui_uiFan;
+    uic_uiboxFan = ui_uiboxFan;
     uic_uiPannelHumidandTemp = ui_uiPannelHumidandTemp;
     uic_uiValueTemp = ui_uiValueTemp;
     uic_uiValueHumid = ui_uiValueHumid;
@@ -515,7 +475,6 @@ void ui_Screen1_screen_init(void)
     uic_uiImageHumid = ui_uiImageHumid;
     uic_uiImageTemp = ui_uiImageTemp;
     uic_uiPannelWater = ui_uiPannelWater;
-    uic_uiButtonWater = ui_uiButtonWater;
     uic_uiPannelSoild = ui_uiPannelSoild;
     uic_uiValueSoild = ui_uiValueSoild;
     uic_uiLabelSoild = ui_uiLabelSoild;
@@ -534,16 +493,14 @@ void ui_Screen1_screen_destroy(void)
     ui_uiPannelBackgound = NULL;
     uic_Iloveptit = NULL;
     ui_Iloveptit = NULL;
-    uic_uiTerminal = NULL;
-    ui_uiTerminal = NULL;
     uic_uiPannelLight = NULL;
     ui_uiPannelLight = NULL;
     uic_uiLabelLight = NULL;
     ui_uiLabelLight = NULL;
-    uic_uiButtonLight = NULL;
-    ui_uiButtonLight = NULL;
     uic_uiLightbulb = NULL;
     ui_uiLightbulb = NULL;
+    uic_BoxLight = NULL;
+    ui_BoxLight = NULL;
     uic_uiPannelLuxandCO2 = NULL;
     ui_uiPannelLuxandCO2 = NULL;
     uic_uiValueLux = NULL;
@@ -558,11 +515,14 @@ void ui_Screen1_screen_destroy(void)
     ui_uiImageLux = NULL;
     uic_uiImageCO2 = NULL;
     ui_uiImageCO2 = NULL;
-    ui_Panel5 = NULL;
-    ui_Label5 = NULL;
+    uic_uiPannelFan = NULL;
+    ui_uiPannelFan = NULL;
+    uic_uiLabelFan = NULL;
+    ui_uiLabelFan = NULL;
     uic_uiFan = NULL;
     ui_uiFan = NULL;
-    ui_ImgButton3 = NULL;
+    uic_uiboxFan = NULL;
+    ui_uiboxFan = NULL;
     uic_uiPannelHumidandTemp = NULL;
     ui_uiPannelHumidandTemp = NULL;
     uic_uiValueTemp = NULL;
@@ -581,8 +541,7 @@ void ui_Screen1_screen_destroy(void)
     ui_uiPannelWater = NULL;
     ui_uiLabelWater = NULL;
     ui_uiImageWater = NULL;
-    uic_uiButtonWater = NULL;
-    ui_uiButtonWater = NULL;
+    ui_Checkbox1 = NULL;
     uic_uiPannelSoild = NULL;
     ui_uiPannelSoild = NULL;
     uic_uiValueSoild = NULL;
