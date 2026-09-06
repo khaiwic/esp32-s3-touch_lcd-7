@@ -4,6 +4,10 @@ void setup(){
   Serial.begin(115200);
 
   display_init();
+
+  Serial.println("[Display]: Cau hinh thanh cong!");
+  vTaskDelay(10 / portTICK_PERIOD_MS);
+  
   // if (ui_uiTerminal != NULL) {
   //       lv_obj_clear_flag(ui_uiTerminal, LV_OBJ_FLAG_CLICK_FOCUSABLE);
   //   }
